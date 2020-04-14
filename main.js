@@ -1,38 +1,24 @@
-////////////////////////////////////////////////////////
-// Minor Programmeren Finalproject Musicvisualization // 
-//                                              3      //
-// Name:  Noam Rubin       	                          //
-// Studentnumber: 10800565							  //
-// 													  //
-// 27 - 06 - 2018                                	  // 
-//		    									      // 											  
-// This is the main script for the 					  //
-// music visualization							 	  //
-//                       							  //
-////////////////////////////////////////////////////////
+window.onload = function () {
+  // call uploadFile function
+  uploadFile();
 
-window.onload = function() {
+  // play audio
+  var properties = playAudio("raga.mp3");
 
-	// call uploadFile function
-	uploadFile();
+  // substract properties audio file
+  context = properties[0];
+  source = properties[1];
+  analyserNode = properties[2];
 
-	// play audio 
-	var properties = playAudio("latewood.mp3");
+  // create frequency barchart
+  createBarChart(analyserNode);
 
-	// substract properties audio file
-	context = properties[0];
-	source = properties[1];
-	analyserNode = properties[2];
+  // create circle chart
+  createCircleChart(analyserNode);
 
-	// create frequency barchart
-	createBarChart(analyserNode);
+  // create line graph
+  startLineContext(analyserNode);
 
-	// create circle chart
-	createCircleChart(analyserNode);
-
-	// create line graph
-	startLineContext(analyserNode);
-
-	// run synthesizer
-	synthesizer(context, source);
+  // run synthesizer
+  synthesizer(context, source);
 };

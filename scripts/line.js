@@ -17,7 +17,7 @@ function startLineContext(analyserNode) {
 
   // graph dimensions
   (margin = { top: 30, right: 20, bottom: 30, left: 50 }),
-    (width = 200 - margin.left - margin.right),
+    (width = 350 - margin.left - margin.right),
     (height = 100 - margin.top - margin.bottom);
 
   // append svg
@@ -25,7 +25,7 @@ function startLineContext(analyserNode) {
     .select(".svgLine")
     .append("svg")
     .attr("id", "line-graph")
-    .attr("width", width + 80)
+    .attr("width", width)
     .attr("height", height);
 
   createLinegraph(analyserNode);
