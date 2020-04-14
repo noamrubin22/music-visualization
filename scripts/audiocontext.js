@@ -1,68 +1,73 @@
 ////////////////////////////////////////////////////////
-// Minor Programmeren Finalproject Musicvisualization // 
+// Minor Programmeren Finalproject Musicvisualization //
 //                                                    //
 // Name:  Noam Rubin       	                          //
 // Studentnumber: 10800565							  //
 // 													  //
-// 27 - 06 - 2018                                	  // 
-//		    									      //  													  
+// 27 - 06 - 2018                                	  //
+//		    									      //
 // This script plays the chosen song, creates an	  //
 // audiocontext and returns the context, sourc and    //
-// analyserNode										  // 
+// analyserNode										  //
 //			                                          //
 ////////////////////////////////////////////////////////
 
 function playAudio(song) {
-	/* returns audio-element, context and analyserNode */
+  /* returns audio-element, context and analyserNode */
 
-	// initialize audio element
-	var audio = new Audio(); 
-      
-		// make sure CODS are set to None 
-		audio.crossOrigin = 'anonymous';
+  // initialize audio element
+  var audio = new Audio();
 
-		// use uploaded song
-		audio.src = "audio/"  + song;
-	
-		// let it play 
-		audio.controls = true;
-		audio.loop = true; 
-		audio.autoplay = false;
+  // make sure CODS are set to None
+  audio.crossOrigin = "anonymous";
 
-	// if audio changes
-	audio.onchange = function() {
+  // use uploaded song
+  audio.src = "audio/" + song;
 
-		// create files in this 
-		var files = this.files;
+  console.log(audio);
+  // let it play
+  audio.controls = true;
+  audio.loop = true;
+  audio.autoplay = false;
 
-		// store objecturl 
-		var file = URL.createObjectURL(files[0]); 
+  // if audio changes
+  audio.onchange = function () {
+    // create files in this
+    var files = this.files;
 
-				// set objecturl to audioplayer
-				audio_player.src = file; 
+    // store objecturl
+    var file = URL.createObjectURL(files[0]);
 
-	// play audio
-	audio_player.play();
-	};
+    // set objecturl to audioplayer
+    audio_player.src = file;
 
-	// replace audio element in the audio box on the page
-    var audioElement = document.getElementById("audio-box");
+    // play audio
+    audio_player.play();
+  };
+
+  // replace audio element in the audio box on the page
+  var audioElement = document.getElementById("audio-box");
+
+  if (audioElement.hasChildNodes()) {
     audioElement.replaceChild(audio, audioElement.childNodes[0]);
-	
-	// create audiocontext
-	var context = new AudioContext();
+  } else {
+    audioElement.appendChild(audio);
+  }
 
-    // create analyserNode 
-    var analyserNode = context.createAnalyser(); 
+  // create audiocontext
+  var context = new AudioContext();
 
-    // re-route audio playback into the processing graph of the Audio context
-    var source = context.createMediaElementSource(audio);
-    
-    // connect audio context analyser
-    source.connect(analyserNode);
-    
-    // connect visualizationdata to destination
-    analyserNode.connect(context.destination);
+  // create analyserNode
+  var analyserNode = context.createAnalyser();
 
-	return [context, source, analyserNode];
+  // re-route audio playback into the processing graph of the Audio context
+  var source = context.createMediaElementSource(audio);
+
+  // connect audio context analyser
+  source.connect(analyserNode);
+
+  // connect visualizationdata to destination
+  analyserNode.connect(context.destination);
+
+  return [context, source, analyserNode];
 }
