@@ -18,7 +18,7 @@ function startLineContext(analyserNode) {
   // graph dimensions
   (margin = { top: 30, right: 20, bottom: 30, left: 50 }),
     (width = 350 - margin.left - margin.right),
-    (height = 100 - margin.top - margin.bottom);
+    (height = 280 - margin.top - margin.bottom);
 
   // append svg
   svg_div = d3

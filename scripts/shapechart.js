@@ -19,7 +19,7 @@ function createCircleChart(analyserNode) {
   /*creates svg environment and calls visualization function*/
 
   // initialize properties
-  (svg1Height = 300), (svg1Width = 290);
+  (svg1Height = 250), (svg1Width = 400);
   (svg2Height = 200), (svg2Width = 200);
 
   // append svg to div first svg
@@ -31,12 +31,12 @@ function createCircleChart(analyserNode) {
     .attr("width", svg1Width);
 
   // append svg to div second svg
-  svgShaper2 = d3
-    .select(".svgShaper")
-    .append("svg")
-    .attr("id", "shape-svg2")
-    .attr("height", svg2Height)
-    .attr("width", svg2Width);
+  //   svgShaper2 = d3
+  //     .select(".svgShaper")
+  //     .append("svg")
+  //     .attr("id", "shape-svg2")
+  //     .attr("height", svg2Height)
+  //     .attr("width", svg2Width);
 
   // call create shapechart function
   shapeVisualization(analyserNode);
@@ -69,7 +69,9 @@ function shapeVisualization(analyserNode) {
   var scaleHue1 = d3
     .scaleLinear()
     .domain([0, d3.max(waveLengthArray)])
-    .range([0, 300]);
+    .interpolate(d3.interpolateHcl)
+    .range([d3.rgb("#b4585d"), d3.rgb("FFB16A")]);
+  // 177,147,123
 
   // second colorscale
   var scaleHue2 = d3
@@ -84,32 +86,32 @@ function shapeVisualization(analyserNode) {
     .enter()
     .append("circle")
     .attr("r", function (d) {
-      return d;
+      return d / 2;
     })
-    .attr("cx", svg1Width / 1.1)
-    .attr("cy", svg1Height / 7)
+    .attr("cx", svg1Width - 200)
+    .attr("cy", svg1Height - 100)
     .attr("fill", "none")
-    .attr("stroke-width", 1)
-    .attr("stroke-opacity", 0.2)
+    .attr("stroke-width", 0.2)
+    .attr("stroke-opacity", 0.6)
     .attr("stroke", function (d) {
-      return d3.hsl(scaleHue1(d), 1, 1.2);
+      return d3.hsl(scaleHue1(d), 1.2, 3);
     });
 
   // update second circle chart with  data
-  var circles = svgShaper2
-    .selectAll("circle")
-    .data(waveLengthArray)
-    .enter()
-    .append("circle")
-    .attr("r", function (d) {
-      return scaleRadius(d);
-    })
-    .attr("cx", svg2Width)
-    .attr("cy", svg2Height)
-    .attr("fill", "none")
-    .attr("stroke-width", 1)
-    .attr("stroke-opacity", 0.2)
-    .attr("stroke", function (d) {
-      return d3.hsl(scaleHue2(d), 2, 0.5);
-    });
+  //   var circles = svgShaper2
+  //     .selectAll("circle")
+  //     .data(waveLengthArray)
+  //     .enter()
+  //     .append("circle")
+  //     .attr("r", function (d) {
+  //       return scaleRadius(d);
+  //     })
+  //     .attr("cx", svg2Width)
+  //     .attr("cy", svg2Height)
+  //     .attr("fill", "none")
+  //     .attr("stroke-width", 1)
+  //     .attr("stroke-opacity", 0.2)
+  //     .attr("stroke", function (d) {
+  //       return d3.hsl(scaleHue2(d), 2, 0.5);
+  //     });
 }
