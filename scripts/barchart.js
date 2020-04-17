@@ -1,17 +1,3 @@
-////////////////////////////////////////////////////////
-// Minor Programmeren Finalproject Musicvisualization //
-//                                                    //
-// Name:  Noam Rubin       	                          //
-// Studentnumber: 10800565							  //
-// 													  //
-// 27 - 06 - 2018                                	  //
-//		    									      //
-// This script creates a barchart that updates with   //
-// live data using the frequency of a song. The       //
-// analyserNode obtaints all necessary information	  //
-//   												  //
-////////////////////////////////////////////////////////
-
 function createBarChart(anaylserNode) {
   /* creates a dynamic barchart */
 

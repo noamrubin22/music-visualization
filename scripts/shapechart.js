@@ -74,14 +74,15 @@ function shapeVisualization(analyserNode) {
     .attr("r", function (d) {
       return d / 2;
     })
-    .attr("cx", svg1Width - 200)
+    .attr("cx", svg1Width - 100)
     .attr("cy", svg1Height - 100)
     .attr("fill", "none")
     .attr("stroke-width", 0.2)
     .attr("stroke-opacity", 0.6)
-    .attr("stroke", function (d) {
-      return d3.hsl(scaleHue1(d), 1.2, 3);
-    });
+    // .attr("stroke", function (d) {
+    //   return d3.hsl(scaleHue1(d), 1.2, 3);
+    // });
+    .style("stroke", "FFB16A");
 
   // update second circle chart with  data
   //   var circles = svgShaper2
