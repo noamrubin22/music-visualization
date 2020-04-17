@@ -1,17 +1,3 @@
-////////////////////////////////////////////////////////
-// Minor Programmeren Finalproject Musicvisualization //
-//                                                    //
-// Name:  Noam Rubin                                  //
-// Studentnumber: 10800565                            //
-//                                                    //
-// 27 - 06 - 2018                                     //
-//                                                    //
-// This script creates a circle chart that updates    //
-// with live data using the wavelength of a song. The //                                         //
-// analyserNode provides the necessary information    //
-//                                                    //
-////////////////////////////////////////////////////////
-
 // global variables
 var svgShaper, svgShaper2, svg1Height, svg1Width, svg2Height, svg2Width;
 
@@ -19,7 +5,7 @@ function createCircleChart(analyserNode) {
   /*creates svg environment and calls visualization function*/
 
   // initialize properties
-  (svg1Height = 250), (svg1Width = 400);
+  (svg1Height = 250), (svg1Width = 300);
   (svg2Height = 200), (svg2Width = 200);
 
   // append svg to div first svg

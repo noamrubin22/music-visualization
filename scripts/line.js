@@ -1,17 +1,3 @@
-////////////////////////////////////////////////////////
-// Minor Programmeren Finalproject Musicvisualization //
-//                                                    //
-// Name:  Noam Rubin                                  //
-// Studentnumber: 10800565                            //
-//                                                    //
-// 28 - 06 - 2018                                     //
-//                                                    //
-// This script creates a linegraph that updates with   //
-// live data using the wavelength of a song. The       //
-// analyserNode obtaints all necessary information    //
-//                                                    //
-////////////////////////////////////////////////////////
-
 function startLineContext(analyserNode) {
   /* creates svg and calls linegraph function */
 
