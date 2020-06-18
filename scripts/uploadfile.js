@@ -1,5 +1,5 @@
 function uploadFile() {
-  /* lets user upload a file and updates charts*/
+  /* lets user upload a file and updates chart s*/
 
   // substract variables from html
   const realFileButton = document.getElementById("real-file");
@@ -18,6 +18,7 @@ function uploadFile() {
       // show filename
       customText.innerHTML = document.getElementById("real-file").files[0].name;
 
+      console.log(customText.innerHTML);
       // update chart with new data
       var properties = playAudio(customText.innerHTML);
 

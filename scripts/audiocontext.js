@@ -23,6 +23,7 @@ function playAudio(song) {
 
   // use uploaded song
   audio.src = "audio/" + song;
+  // audio.src = song;
 
   console.log(audio);
   // let it play
@@ -40,6 +41,8 @@ function playAudio(song) {
 
     // set objecturl to audioplayer
     audio_player.src = file;
+
+    audio_player.resume();
 
     // play audio
     audio_player.play();

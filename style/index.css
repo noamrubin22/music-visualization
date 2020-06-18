@@ -55,12 +55,13 @@ body {
   background-color: #b4585d;
   padding: 0.7rem;
   margin-top: 0.7rem;
-  border-radius: 12%;
+  border-radius: 15%;
   width: 8rem;
   border: #b4585d 0.1rem solid;
   color: #444853;
   font-size: 0.7rem;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: #f57461 0.06rem solid;
 }
 
 #custom-button:hover {
@@ -77,6 +78,10 @@ body {
   padding: 1rem;
   color: #444853;
   text-align: center;
+}
+
+#distortion {
+  background: #444853;
 }
 
 #audio-box {

@@ -1,24 +1,28 @@
 window.onload = function () {
-  // call uploadFile function
-  uploadFile();
-
   // play audio
-  var properties = playAudio("raga.mp3");
 
-  // substract properties audio file
-  context = properties[0];
-  source = properties[1];
-  analyserNode = properties[2];
+  const startButton = document.getElementById("start-btn");
+  startButton.addEventListener("click", function () {
+    // call uploadFile function
+    uploadFile();
 
-  // create frequency barchart
-  createBarChart(analyserNode);
+    var properties = playAudio("raga.mp3");
 
-  // create circle chart
-  createCircleChart(analyserNode);
+    // substract properties audio file
+    context = properties[0];
+    source = properties[1];
+    analyserNode = properties[2];
 
-  // create line graph
-  startLineContext(analyserNode);
+    // create frequency barchart
+    createBarChart(analyserNode);
 
-  // run synthesizer
-  synthesizer(context, source);
+    // create circle chart
+    createCircleChart(analyserNode);
+
+    // create line graph
+    startLineContext(analyserNode);
+
+    // run synthesizer
+    synthesizer(context, source);
+  });
 };
