@@ -29,88 +29,62 @@
     <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
   </head>
   <body>
-    <button id="start-btn">click here to start</button>
-    <div class="sound">
-      <div class="uploadfile">
-        <input type="file" id="real-file" hidden="hidden" />
-        <button type="button" id="custom-button">UPLOAD MP3 FILE</button>
-        <span id="custom-text"></span>
+    <div class="container">
+      <div class="bar-chart">
+        <div class="svg-barchart" id="barchartSpot"></div>
       </div>
-      <div id="audio-box"></div>
-    </div>
-
-    <div class="section">
-      <div class="svg-barchart" id="barchartSpot"></div>
-
-      <!-- <div class="shapes"> -->
-      <div class="middle">
+      <div class="circle-chart">
         <div class="svgShaper"></div>
-        <div class="svgLine"></div>
       </div>
-
-      <div class="synthesizer">
-        <label for="distortion" class="sliderlabel">DISTORTION</label>
-        <input
-          type="range"
-          min="0.0"
-          max="1.0"
-          step="0.01"
-          value="0.0"
-          id="distortion"
-          class="slider"
-        />
-        <label for="lowpassfilter" class="sliderlabel"> BASS BOOSTER</label>
-        <input
-          type="range"
-          min="0.0"
-          max="1.0"
-          step="0.01"
-          value="0.0"
-          id="lowpassfilter"
-          class="slider"
-        />
-        <label for="filter" class="sliderlabel">HIGH PASS FILTER </label>
-        <input
-          type="range"
-          min="0.0"
-          max="1.0"
-          step="0.01"
-          value="0.0"
-          id="filter"
-          class="slider"
-        />
-        <button id="custom-button" class="button">RESET</button>
+      <div class="configurations">
+        <div class="upload-file">
+          <input type="file" id="real-file" hidden="hidden" />
+          <button type="button" id="custom-button">UPLOAD MP3 FILE</button>
+          <span id="custom-text"></span>
+        </div>
+        <div id="audio-box"></div>
+        <div class="synthesizer">
+          <label for="distortion" class="sliderlabel">distortion</label>
+          <input
+            type="range"
+            min="0.0"
+            max="1.0"
+            step="0.01"
+            value="0.0"
+            id="distortion"
+            class="slider"
+          />
+          <label for="lowpassfilter" class="sliderlabel"> bass booster</label>
+          <input
+            type="range"
+            min="0.0"
+            max="1.0"
+            step="0.01"
+            value="0.0"
+            id="lowpassfilter"
+            class="slider"
+          />
+          <label for="filter" class="sliderlabel">high pass filter</label>
+          <input
+            type="range"
+            min="0.0"
+            max="1.0"
+            step="0.01"
+            value="0.0"
+            id="filter"
+            class="slider"
+          />
+          <button id="custom-button" class="button">reset</button>
+        </div>
+        <button id="start-btn">click here to start</button>
       </div>
     </div>
-    <!-- <div class="information">
-      <h6>
-        Download the
-        <a
-          href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en"
-        >
-          Google Chrome extention</a
-        >
-        to make this website work
-      </h6>
-      <h4>Music visualization</h4>
-      <p>By Noam Rubin</p>
-    </div> -->
-
-    <!-- For bootstrap
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-      crossorigin="anonymous"
-    ></script> -->
+    <!-- <div class="section"> -->
+    <!-- <div class="shapes"> -->
+    <!-- <div class="middle"> -->
+    <!-- <div class="svgShaper"></div> -->
+    <!-- <div class="svgLine"></div> -->
+    <!-- </div> -->
+    <!-- </div> -->
   </body>
 </html>

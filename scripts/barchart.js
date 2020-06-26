@@ -44,14 +44,14 @@ function createBarChart(anaylserNode) {
     .enter()
     .append("rect")
     .attr("y", function (d, i) {
-      return i * (w / bars);
+      return i * (w / bars) * 2;
     })
     .attr("x", function (d) {
       return 0;
     })
     .attr("height", barWidth)
     .attr("width", function (d) {
-      return x(d);
+      return x(d * -3);
     })
     .style("stroke", "F57461")
     .style("fill", "FFB16A");

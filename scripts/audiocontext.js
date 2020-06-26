@@ -1,17 +1,3 @@
-////////////////////////////////////////////////////////
-// Minor Programmeren Finalproject Musicvisualization //
-//                                                    //
-// Name:  Noam Rubin       	                          //
-// Studentnumber: 10800565							  //
-// 													  //
-// 27 - 06 - 2018                                	  //
-//		    									      //
-// This script plays the chosen song, creates an	  //
-// audiocontext and returns the context, sourc and    //
-// analyserNode										  //
-//			                                          //
-////////////////////////////////////////////////////////
-
 function playAudio(song) {
   /* returns audio-element, context and analyserNode */
 
@@ -22,10 +8,17 @@ function playAudio(song) {
   audio.crossOrigin = "anonymous";
 
   // use uploaded song
-  audio.src = "audio/" + song;
-  // audio.src = song;
-
-  console.log(audio);
+  if (song == "raga.mp3") {
+    audio.src = "audio/" + song;
+  } else {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      audio.src = this.result;
+      audio.controls = true;
+      audio.play();
+    };
+    reader.readAsDataURL(this.files[0]);
+  }
   // let it play
   audio.controls = true;
   audio.loop = true;
@@ -57,16 +50,12 @@ function playAudio(song) {
     audioElement.appendChild(audio);
   }
 
-  // create audiocontext
   var context = new AudioContext();
 
-  // create analyserNode
   var analyserNode = context.createAnalyser();
 
   // re-route audio playback into the processing graph of the Audio context
   var source = context.createMediaElementSource(audio);
-
-  // connect audio context analyser
   source.connect(analyserNode);
 
   // connect visualizationdata to destination

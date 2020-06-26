@@ -72,7 +72,7 @@ function shapeVisualization(analyserNode) {
     .enter()
     .append("circle")
     .attr("r", function (d) {
-      return d / 2;
+      return d * 2;
     })
     .attr("cx", svg1Width - 100)
     .attr("cy", svg1Height - 100)
@@ -82,7 +82,7 @@ function shapeVisualization(analyserNode) {
     // .attr("stroke", function (d) {
     //   return d3.hsl(scaleHue1(d), 1.2, 3);
     // });
-    .style("stroke", "FFB16A");
+    .style("stroke", "black");
 
   // update second circle chart with  data
   //   var circles = svgShaper2
