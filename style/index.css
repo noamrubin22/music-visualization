@@ -23,13 +23,20 @@ body {
 .bar-chart {
   width: 20%;
   height: 100%;
-  position: fixed;
-  background-color: pink;
+  /* position: fixed; */
+  /* background-color: pink; */
 }
 
+/* circle chart */
 .circle-chart {
-  background: green;
-  width: 80%;
+  /* background: green; */
+  /* position: fixed; */
+  width: 60%;
+  height: 100%;
+}
+
+#shape-svg {
+  width: 100%;
   height: 100%;
 }
 
@@ -40,9 +47,10 @@ body {
   align-items: center;
   width: 20%;
   height: 100%;
-  background-color: red;
+  /* background-color: red; */
 }
 
+/* synth */
 .synthesizer {
   display: flex;
   flex-direction: column;
@@ -88,6 +96,8 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
+/* mp3 player */
 #audio-box {
   display: block;
   width: 60rem;
@@ -101,6 +111,7 @@ audio {
   /* height: 20%; */
 }
 
+/* start button */
 #start-btn {
   width: 30rem;
   height: 30rem;
@@ -162,12 +173,7 @@ audio {
   /* padding: 0.5rem; */
   /* margin: 0.5rem; */
 }
-.svgShaper {
+/* .svgShaper {
   width: 100%;
   height: 100%;
-}
-
-/* #shape-svg {
-  width: 120rem;
-  height: 40rem;
 } */
