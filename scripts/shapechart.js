@@ -5,16 +5,19 @@ function createCircleChart(analyserNode) {
   /*creates svg environment and calls visualization function*/
 
   // initialize properties
-  (svg1Height = 2200), (svg1Width = 2500);
+  (svg1Height = 1700), (svg1Width = 2300);
   // (svg2Height = 200), (svg2Width = 200);
 
   // append svg to div first svg
   svgShaper = d3
-    .select(".svgShaper")
+    .select(".circle-chart")
     .append("svg")
     .attr("id", "shape-svg")
-    .attr("height", svg1Height)
-    .attr("width", svg1Width);
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 5600 4000")
+    .classed("svg-content", true);
+  // .attr("height", svg1Height)
+  // .attr("width", svg1Width);
 
   // call create shapechart function
   shapeVisualization(analyserNode);
@@ -63,7 +66,7 @@ function shapeVisualization(analyserNode) {
     .enter()
     .append("circle")
     .attr("r", function (d) {
-      return d * 9;
+      return d * 7;
     })
     .attr("cx", svg1Width - 100)
     .attr("cy", svg1Height - 100)
