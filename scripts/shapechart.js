@@ -68,7 +68,7 @@ function shapeVisualization(analyserNode) {
     .enter()
     .append("circle")
     .attr("r", function (d) {
-      return d * 7;
+      return d * 8;
     })
     .attr("cx", svg1Width / 2)
     .attr("cy", svg1Height / 2)

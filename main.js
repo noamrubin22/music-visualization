@@ -3,7 +3,9 @@ window.onload = function () {
 
   const startButton = document.getElementById("start-btn");
   startButton.addEventListener("click", function () {
-    // call uploadFile function
+    // remove button
+    startButton.style.display = "none";
+    // call uploadFile function;
     uploadFile();
 
     var properties = playAudio("schwarzes_gold.mp3");

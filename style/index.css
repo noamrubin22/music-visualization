@@ -120,23 +120,26 @@ body {
 /* mp3 player */
 #audio-box {
   display: block;
-  width: 60rem;
+  width: 100%;
+  /* height: 100%; */
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
 }
 
-audio {
-  width: 90%;
-  /* height: 20%; */
-}
+/* audio {
+  width: 50%;
+  /* height: 100%; */
+/* } */
 
 /* start button */
 #start-btn {
-  width: 30rem;
-  height: 30rem;
-  font-size: 7rem;
+  width: 100%;
+  height: 100%;
+  font-size: 30rem;
+  align-self: center;
   box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: "Yellowtail", cursive;
 }
 
 #custom-button {
