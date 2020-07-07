@@ -8,7 +8,7 @@ function playAudio(song) {
   audio.crossOrigin = "anonymous";
 
   // use uploaded song
-  if (song == "raga.mp3") {
+  if (song == "schwarzes_gold.mp3") {
     audio.src = "audio/" + song;
   } else {
     var reader = new FileReader();

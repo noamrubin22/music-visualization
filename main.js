@@ -6,7 +6,7 @@ window.onload = function () {
     // call uploadFile function
     uploadFile();
 
-    var properties = playAudio("raga.mp3");
+    var properties = playAudio("schwarzes_gold.mp3");
 
     // substract properties audio file
     context = properties[0];

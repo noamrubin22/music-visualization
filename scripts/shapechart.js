@@ -5,7 +5,7 @@ function createCircleChart(analyserNode) {
   /*creates svg environment and calls visualization function*/
 
   // initialize properties
-  (svg1Height = 1700), (svg1Width = 2300);
+  (svg1Height = 4000), (svg1Width = 4000);
   // (svg2Height = 200), (svg2Width = 200);
 
   // append svg to div first svg
@@ -13,11 +13,13 @@ function createCircleChart(analyserNode) {
     .select(".circle-chart")
     .append("svg")
     .attr("id", "shape-svg")
-    .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 5600 4000")
-    .classed("svg-content", true);
-  // .attr("height", svg1Height)
-  // .attr("width", svg1Width);
+    // .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("height", svg1Height)
+    .attr("width", svg1Width)
+    .attr("viewBox", "0 0 4000 4000")
+    .classed("svg-content", true)
+    .attr("height", svg1Height)
+    .attr("width", svg1Width);
 
   // call create shapechart function
   shapeVisualization(analyserNode);
@@ -68,8 +70,8 @@ function shapeVisualization(analyserNode) {
     .attr("r", function (d) {
       return d * 7;
     })
-    .attr("cx", svg1Width - 100)
-    .attr("cy", svg1Height - 100)
+    .attr("cx", svg1Width / 2)
+    .attr("cy", svg1Height / 2)
     .attr("fill", "none")
     .attr("stroke-width", 0.2)
     .attr("stroke-opacity", 0.6)
