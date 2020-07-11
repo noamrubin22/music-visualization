@@ -10,7 +10,7 @@ function playAudio(song) {
   // use uploaded song
   if (song == "schwarzes_gold.mp3") {
     audio.src = "audio/" + song;
-    // audio.play();
+    audio.play();
   } else {
     var reader = new FileReader();
     reader.onload = function (e) {
