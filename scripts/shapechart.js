@@ -68,15 +68,15 @@ function shapeVisualization(analyserNode) {
     .enter()
     .append("circle")
     .attr("r", function (d) {
-      return d * 8;
+      return d * 9;
     })
     .attr("cx", svg1Width / 2)
     .attr("cy", svg1Height / 2)
     .attr("fill", "none")
-    .attr("stroke-width", 0.2)
-    .attr("stroke-opacity", 0.6)
+    .attr("stroke-width", 0.4)
+    .attr("stroke-opacity", 0.2)
     // .attr("stroke", function (d) {
     //   return d3.hsl(scaleHue1(d), 1.2, 3);
     // });
-    .style("stroke", "black");
+    .style("stroke", "yellow");
 }

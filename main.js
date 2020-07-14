@@ -1,10 +1,16 @@
 window.onload = function () {
-  // play audio
+  // hide all elements before start button is clicked
+  document.getElementById("upload-file").style.visibility = "hidden";
+  document.getElementById("synthesizer").style.visibility = "hidden";
 
+  // play audio
   const startButton = document.getElementById("start-btn");
   startButton.addEventListener("click", function () {
     // remove button
     startButton.style.display = "none";
+
+    document.getElementById("upload-file").style.visibility = "visible";
+    document.getElementById("synthesizer").style.visibility = "visible";
     // call uploadFile function;
     uploadFile();
 
