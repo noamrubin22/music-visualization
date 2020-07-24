@@ -16,10 +16,9 @@ function uploadFile() {
     // if a file is chosen
     if (realFileButton.value) {
       // show filename
-      customText.innerHTML = document.getElementById("real-file").files[0].name;
-
-      console.log(customText.innerHTML);
-
+      customText.innerHTML = document
+        .getElementById("real-file")
+        .files[0].name.split(".mp3");
       var file = e.target.files[0];
 
       // Open the database connection.

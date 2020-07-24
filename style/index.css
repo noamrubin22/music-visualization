@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Yellowtail", cursive;
+  font-family: "incisedblackwidenormal";
 }
 
 /* Smartphones */
@@ -25,10 +25,9 @@
   }
 
   .bar-chart {
-    width: 50%;
+    width: 80%;
     height: 100%;
     position: fixed;
-    /* background-color: pink; */
   }
 
   /* circle chart */
@@ -38,20 +37,7 @@
     /* width: 100%; */
     height: 100%;
     /* display: flex; */
-    /* justify-content: flex-start; */
-  }
-
-  .svgShaper {
-    /* display: flex;
-    align-self: center;
-    justify-content: center;
-    margin-right: auto;
-    margin-left: auto;
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    vertical-align: top;
-    overflow: hidden; */
+    /* justify-content: center; */
   }
 
   #shape-svg {
@@ -61,7 +47,6 @@
 
   .svg-content {
     display: inline-block;
-    /* position: absolute; */
     top: 0;
     left: 0;
   }
@@ -69,40 +54,28 @@
   .configurations {
     display: flex;
     flex-direction: column-reverse;
-    /* flex-direction: row; */
     align-items: flex-end;
-
     justify-content: space-evenly;
-    /* align-content: space-evenly; */
-    /* padding: 1rem; */
     width: 100%;
     height: 14rem;
     padding: 1rem;
     margin-bottom: 5rem;
-    /* background-color: red; */
   }
 
   /* synth */
   .synthesizer {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
-    /* background: black; */
     border: rgb(161, 148, 148) 0.1rem solid;
     align-items: center;
     width: 9rem;
     height: 10rem;
-    /* margin-bottom: 1rem; */
-    /* box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     border-radius: 5%;
     font-size: 1rem;
     margin: 1rem;
-    /* margin-right: 6rem; */
   }
 
   .sliderlabel {
-    /* padding: 3rem; */
-    /* margin: 3rem; */
     color: yellow;
     text-align: center;
   }
@@ -110,7 +83,6 @@
   .slider {
     width: 70%;
     border-radius: 2px;
-    background: red;
     outline: none;
     opacity: 0.7;
     -webkit-transition: 0.2s;
@@ -121,7 +93,7 @@
     /* padding: 2rem; */
     /* margin-right: 5rem; */
     display: flex;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -130,6 +102,7 @@
 
   #upload-btn {
     color: black;
+    /* padding: 1rem; */
   }
   /* mp3 player */
   #audio-box {
@@ -148,7 +121,6 @@
     position: fixed;
     padding: 0;
     margin: 0;
-
     top: 0;
     left: 0;
     width: 100%;
@@ -159,22 +131,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* vertical-align: middle; */
-    /* line-height: 100%; */
   }
 
   #custom-button {
-    /* background-color: pink; */
     padding: 0.3rem;
     border-radius: 15%;
-    /* width: 40em; */
-    /* height: 5rem; */
     border: white 0.1rem solid;
     color: #444853;
     font-size: 0.8rem;
-    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), */
-    /* 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-    /* border: black 0.06rem solid; */
+  }
+
+  #custom-text {
+    color: yellow;
   }
 
   #custom-button:hover {
@@ -183,11 +151,8 @@
   }
 
   .svg-barchart {
-    /* background: white; */
     height: 100%;
     width: 100%;
-    /* padding: 0.5rem; */
-    /* margin: 0.5rem; */
   }
 }
 
@@ -210,42 +175,22 @@
   }
 
   .bar-chart {
-    width: 40%;
+    width: 80%;
     height: 100%;
-    /* position: fixed; */
-    /* background-color: pink; */
   }
 
   /* circle chart */
   .circle-chart {
-    /* background: green; */
-    /* position: fixed; */
-    width: 50%;
+    width: 60%;
     height: 100%;
   }
 
-  .svgShaper {
-    /* display: flex;
-    align-self: center;
-    justify-content: center;
-    margin-right: auto;
-    margin-left: auto;
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    vertical-align: top;
-    overflow: hidden; */
-  }
-
   #shape-svg {
-    /* width: 100%; */
-    /* height: 100%; */
     background: purple;
   }
 
   .svg-content {
     display: inline-block;
-    /* position: absolute; */
     top: 0;
     left: 0;
   }
@@ -255,7 +200,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 50%;
     height: 50%;
     margin-top: 3rem;
     margin-right: 7rem;
@@ -286,13 +231,14 @@
     /* margin: 3rem; */
     color: rgb(236, 212, 175);
     text-align: center;
+    font-size: 2rem;
   }
 
   .slider {
     /* margin-top: 2rem; */
     width: 80%;
     /* height: 15px; */
-    border-radius: 5px;
+    border-radius: 1rem;
     background: grey;
     outline: none;
     opacity: 0.7;
@@ -300,20 +246,112 @@
     transition: opacity 0.2s;
   }
 
-  /* .button {
-    box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 1rem;
-  } */
-
+  /* sliders */
+  input[type="range"] {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: rgb(165, 138, 165);
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+  }
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: rgb(92, 3, 92);
+  }
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: purple;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+  input[type="range"]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background: purple;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: purple;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  input[type="range"]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  input[type="range"]:focus::-ms-fill-lower {
+    background: #3071a9;
+  }
+  input[type="range"]:focus::-ms-fill-upper {
+    background: purple;
+  }
   .upload-file {
     /* padding: 2rem; */
     /* margin-top: rem; */
     /* margin: 1rem; */
     display: flex;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+  }
+
+  #custom-text {
+    color: yellow;
+  }
+
+  #upload-btn {
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(233, 176, 233);
   }
 
   /* mp3 player */
@@ -328,10 +366,15 @@
     /* justify-content: center; */
   }
 
-  /* audio {
-  width: 50%;
-  /* height: 100%; */
-  /* } */
+  #play-btn {
+    /* width: 100px; */
+    padding: 1rem;
+    font-size: 2rem;
+    height: 20%;
+    align-self: center;
+    border-radius: 1rem;
+    background-color: rgb(233, 176, 233);
+  }
 
   /* start button */
   #start-btn {
@@ -347,8 +390,8 @@
     box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-family: "Yellowtail", cursive;
     display: flex;
-    color: white;
-    background-color: purple;
+    color: black;
+    background-color: rgb(233, 176, 233);
     justify-content: center;
     align-items: center;
     /* vertical-align: middle; */
