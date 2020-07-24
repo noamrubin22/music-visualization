@@ -11,6 +11,7 @@ window.onload = function () {
 
     document.getElementById("upload-file").style.visibility = "visible";
     document.getElementById("synthesizer").style.visibility = "visible";
+
     // call uploadFile function;
     uploadFile();
 

@@ -1,22 +1,38 @@
 function playAudio(song) {
   /* returns audio-element, context and analyserNode */
+  function playOnClick() {
+    let isPlaying = false;
+    const playButton = document.getElementById("play-btn");
+    playButton.addEventListener("click", function () {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        audio.play();
+        playButton.textContent = "pause";
+      } else {
+        playButton.textContent = "play";
+        audio.pause();
+      }
+    });
+  }
 
   // initialize audio element
   var audio = new Audio();
 
   // make sure CODS are set to None
   audio.crossOrigin = "anonymous";
-
+  audio.hidden = true;
   // use uploaded song
   if (song == "schwarzes_gold.mp3") {
     audio.src = "audio/" + song;
     // audio.play();
+    playOnClick();
   } else {
     var reader = new FileReader();
     reader.onload = function (e) {
       audio.src = this.result;
       audio.controls = true;
-      audio.play();
+      playOnClick();
+      // audio.play();
     };
     reader.readAsDataURL(this.files[0]);
   }
