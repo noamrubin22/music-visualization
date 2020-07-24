@@ -175,7 +175,7 @@
   }
 
   .bar-chart {
-    width: 80%;
+    width: 60%;
     height: 100%;
   }
 
@@ -204,7 +204,6 @@
     height: 50%;
     margin-top: 3rem;
     margin-right: 7rem;
-    /* background-color: red; */
   }
 
   /* synth */
@@ -212,32 +211,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* background: white; */
-    /* border: rgb(161, 148, 148) 0.1rem solid; */
     align-items: center;
     width: 12rem;
     height: 20rem;
     padding: 1rem;
     color: rgb(236, 212, 175);
-    /* box-shadow: 0 8px 10px 0 rgb(150, 150, 63),
-      0 6px 20px 0 rgba(51, 50, 50, 0.19); */
-    /* border-radius: 5%; */
     font-size: 1.5rem;
-    /* margin-right: 6rem; */
   }
 
   .sliderlabel {
-    /* padding: 3rem; */
-    /* margin: 3rem; */
-    color: rgb(236, 212, 175);
+    color: rgba(235, 247, 132, 0.945);
     text-align: center;
     font-size: 2rem;
   }
 
   .slider {
-    /* margin-top: 2rem; */
     width: 80%;
-    /* height: 15px; */
     border-radius: 1rem;
     background: grey;
     outline: none;
@@ -333,9 +322,6 @@
     background: purple;
   }
   .upload-file {
-    /* padding: 2rem; */
-    /* margin-top: rem; */
-    /* margin: 1rem; */
     display: flex;
     font-size: 1.3rem;
     flex-direction: column;
@@ -344,7 +330,7 @@
   }
 
   #custom-text {
-    color: yellow;
+    color: rgba(235, 247, 132, 0.945);
   }
 
   #upload-btn {
