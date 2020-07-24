@@ -1,9 +1,10 @@
 function playAudio(song) {
   /* returns audio-element, context and analyserNode */
   function playOnClick() {
-    let isPlaying = false;
+    let isPlaying = true;
     const playButton = document.getElementById("play-btn");
     playButton.addEventListener("click", function () {
+      console.log("play clicked");
       isPlaying = !isPlaying;
       if (isPlaying) {
         audio.play();
@@ -24,7 +25,7 @@ function playAudio(song) {
   // use uploaded song
   if (song == "schwarzes_gold.mp3") {
     audio.src = "audio/" + song;
-    // audio.play();
+    audio.play();
     playOnClick();
   } else {
     var reader = new FileReader();

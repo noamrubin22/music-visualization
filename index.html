@@ -6,7 +6,6 @@
       rel="stylesheet"
       href="style/incisedblackwide_normal_macroman/stylesheet.css"
       type="text/css"
-      charset="utf-8"
     />
 
     <!-- Required meta tags -->
@@ -53,13 +52,8 @@
       <div class="circle-chart">
         <div class="svgShaper"></div>
       </div>
-      <button id="play-btn">play</button>
+      <button id="play-btn">pause</button>
       <div class="configurations">
-        <div class="upload-file" id="upload-file">
-          <input type="file" id="real-file" hidden="hidden" />
-          <button type="button" id="upload-btn">upload mp3 file</button>
-          <span id="custom-text"></span>
-        </div>
         <div id="audio-box"></div>
         <div class="synthesizer" id="synthesizer">
           <label for="distortion" class="sliderlabel">distortion</label>
@@ -94,6 +88,11 @@
           />
           <button id="reset-btn" class="button">reset</button>
         </div>
+      </div>
+      <div class="upload-file" id="upload-file">
+        <input type="file" id="real-file" hidden="hidden" />
+        <button type="button" id="upload-btn">upload mp3 file</button>
+        <span id="custom-text"></span>
       </div>
     </div>
     <!-- <div class="section"> -->

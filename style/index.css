@@ -25,7 +25,7 @@
   }
 
   .bar-chart {
-    width: 80%;
+    width: 60%;
     height: 100%;
     position: fixed;
   }
@@ -66,7 +66,6 @@
   .synthesizer {
     display: flex;
     flex-direction: column;
-    border: rgb(161, 148, 148) 0.1rem solid;
     align-items: center;
     width: 9rem;
     height: 10rem;
@@ -76,7 +75,7 @@
   }
 
   .sliderlabel {
-    color: yellow;
+    color: rgba(235, 247, 132, 0.945);
     text-align: center;
   }
 
@@ -87,6 +86,93 @@
     opacity: 0.7;
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
+  }
+
+  /* sliders */
+  input[type="range"] {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: rgb(165, 138, 165);
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 30px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+  }
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: rgb(92, 3, 92);
+  }
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: purple;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+  input[type="range"]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background: purple;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: purple;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  input[type="range"]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  input[type="range"]:focus::-ms-fill-lower {
+    background: #3071a9;
+  }
+  input[type="range"]:focus::-ms-fill-upper {
+    background: purple;
   }
 
   .upload-file {
@@ -102,19 +188,19 @@
 
   #upload-btn {
     color: black;
-    /* padding: 1rem; */
-  }
-  /* mp3 player */
-  #audio-box {
-    width: 50%;
-    display: flex;
-    /* margin: 1rem; */
-    /* margin-top: 1rem; */
-    /* margin-bottom: 1rem; */
-    justify-content: center;
-    /* margin: 1rem; */
   }
 
+  #reset-btn {
+    background-color: rgb(233, 176, 233);
+    border-radius: 20%;
+    margin: 0.5rem;
+  }
+  #play-btn {
+    align-self: center;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background-color: rgb(233, 176, 233);
+  }
   /* smartphone */
   /* start button */
   #start-btn {
@@ -131,6 +217,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(233, 176, 233);
   }
 
   #custom-button {
@@ -142,7 +229,7 @@
   }
 
   #custom-text {
-    color: yellow;
+    color: rgba(235, 247, 132, 0.945);
   }
 
   #custom-button:hover {
@@ -181,12 +268,8 @@
 
   /* circle chart */
   .circle-chart {
-    width: 60%;
+    width: 30%;
     height: 100%;
-  }
-
-  #shape-svg {
-    background: purple;
   }
 
   .svg-content {
@@ -321,16 +404,25 @@
   input[type="range"]:focus::-ms-fill-upper {
     background: purple;
   }
+
   .upload-file {
     display: flex;
     font-size: 1.3rem;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    margin: 0.3rem;
   }
 
   #custom-text {
     color: rgba(235, 247, 132, 0.945);
+  }
+
+  #reset-btn {
+    background-color: rgb(233, 176, 233);
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 20%;
   }
 
   #upload-btn {
@@ -340,24 +432,13 @@
     background-color: rgb(233, 176, 233);
   }
 
-  /* mp3 player */
-  #audio-box {
-    display: block;
-    width: 80%;
-    /* margin-right: 6rem; */
-    padding: 1rem;
-    /* height: 100%; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-  }
-
   #play-btn {
-    /* width: 100px; */
-    padding: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
     font-size: 2rem;
-    height: 20%;
+    height: 15%;
     align-self: center;
+    justify-self: center;
     border-radius: 1rem;
     background-color: rgb(233, 176, 233);
   }
@@ -367,7 +448,6 @@
     position: fixed;
     padding: 0;
     margin: 0;
-
     top: 0;
     left: 0;
     width: 100%;
@@ -380,24 +460,17 @@
     background-color: rgb(233, 176, 233);
     justify-content: center;
     align-items: center;
-    /* vertical-align: middle; */
-    /* line-height: 100%; */
   }
 
   #custom-button {
-    /* background-color: pink; */
     padding: 0.5rem;
-    /* margin-top: 6rem; */
     margin: 1rem;
     border-radius: 18%;
-    /* width: 40em; */
-    /* height: 5rem; */
     border: white 0.1rem solid;
     color: #444853;
     font-size: 1rem;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
       0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    /* border: black 0.06rem solid; */
   }
 
   #custom-button:hover {
@@ -406,14 +479,7 @@
   }
 
   .svg-barchart {
-    /* background: white; */
     height: 100%;
     width: 100%;
-    /* padding: 0.5rem; */
-    /* margin: 0.5rem; */
   }
-  /* .svgShaper {
-    width: 100%;
-    height: 100%;
-  } */
 }
