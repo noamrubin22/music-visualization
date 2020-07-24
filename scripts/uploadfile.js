@@ -3,7 +3,7 @@ function uploadFile() {
 
   // substract variables from html
   const realFileButton = document.getElementById("real-file");
-  const customButton = document.getElementById("custom-button");
+  const customButton = document.getElementById("upload-btn");
   const customText = document.getElementById("custom-text");
 
   // activate realfilebutton when custombutton is clicked

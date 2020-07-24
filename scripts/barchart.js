@@ -51,8 +51,10 @@ function createBarChart(anaylserNode) {
     })
     .attr("height", barWidth)
     .attr("width", function (d) {
-      return x(d);
+      if (d > 0) {
+        return x(d) / 1.5;
+      }
     })
-    .style("stroke", "yellow")
+    .style("stroke", "orange")
     .style("fill", "black");
 }
