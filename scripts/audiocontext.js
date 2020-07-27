@@ -1,23 +1,33 @@
+let audio;
+let playButton;
+let isPlaying = false;
+
+function changeButtonText(text) {
+  playButton.textContent = text;
+}
+
+function togglePlaying() {
+  isPlaying = !isPlaying;
+  if (isPlaying) {
+    audio.play();
+    changeButtonText("pause");
+  } else {
+    changeButtonText("play");
+    audio.pause();
+  }
+}
 function playAudio(song) {
   /* returns audio-element, context and analyserNode */
-  function playOnClick() {
-    let isPlaying = true;
-    const playButton = document.getElementById("play-btn");
+
+  if (!playButton) {
+    playButton = document.getElementById("play-btn");
     playButton.addEventListener("click", function () {
-      console.log("play clicked");
-      isPlaying = !isPlaying;
-      if (isPlaying) {
-        audio.play();
-        playButton.textContent = "pause";
-      } else {
-        playButton.textContent = "play";
-        audio.pause();
-      }
+      console.log("clicked");
+      togglePlaying();
     });
   }
-
   // initialize audio element
-  var audio = new Audio();
+  audio = new Audio();
 
   // make sure CODS are set to None
   audio.crossOrigin = "anonymous";
@@ -25,17 +35,19 @@ function playAudio(song) {
   // use uploaded song
   if (song == "schwarzes_gold.mp3") {
     audio.src = "audio/" + song;
-    audio.play();
-    playOnClick();
+    togglePlaying();
   } else {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      audio.src = this.result;
-      audio.controls = true;
-      playOnClick();
-      // audio.play();
-    };
-    reader.readAsDataURL(this.files[0]);
+    // var reader = new FileReader();
+    // reader.onload = function (e) {
+    //   audio.src = this.result;
+    //   audio.controls = true;
+    //   // console.log("audioochanged");
+    //   // playButton.textContent = "play";
+    //   // audio.play();
+    //   console.log("2");
+    //   reader.readAsDataURL(this.files[0]);
+    //   togglePlaying();
+    // };
   }
   // let it play
   audio.controls = true;
@@ -46,7 +58,7 @@ function playAudio(song) {
   audio.onchange = function () {
     // create files in this
     var files = this.files;
-
+    console.log("3");
     // store objecturl
     var file = URL.createObjectURL(files[0]);
 
@@ -55,13 +67,17 @@ function playAudio(song) {
 
     audio_player.resume();
 
+    // playButton.textContent = "play";
+    // audio.pause();
+    // playOnClick(isPlaying);
+
     // play audio
     audio_player.play();
   };
 
   // replace audio element in the audio box on the page
   var audioElement = document.getElementById("audio-box");
-
+  console.log("4");
   if (audioElement.hasChildNodes()) {
     audioElement.replaceChild(audio, audioElement.childNodes[0]);
   } else {

@@ -1,19 +1,26 @@
 function uploadFile() {
   /* lets user upload a file and updates chart s*/
-
+  let audioElement;
   // substract variables from html
   const realFileButton = document.getElementById("real-file");
   const customButton = document.getElementById("upload-btn");
   const customText = document.getElementById("custom-text");
-  const playButton = document.getElementById("play-btn");
-  const audio = document.getElementsByName("audio")[0];
+  // const playButton = document.getElementById("play-btn");
+
   // activate realfilebutton when custombutton is clicked
   customButton.addEventListener("click", function () {
     realFileButton.click();
+    console.log("clicked");
+    // pause music
+    togglePlaying();
   });
 
   // if value realfilebutton changes
   realFileButton.addEventListener("change", function (e) {
+    // pause audio again
+    changeButtonText("wait");
+    // playButton.textContent = "play";
+    // playOnClick(false);
     // if a file is chosen
     if (realFileButton.value) {
       // stop audio
@@ -49,7 +56,17 @@ function uploadFile() {
           // Construct a URL for it
           var url = URL.createObjectURL(file);
           // Update audio element with the URL
-          document.querySelector("audio").src = url;
+          if (!audioElement) {
+            audioElement = document.querySelector("audio");
+            // loader
+            // changeButtonText("wait");
+            audioElement.addEventListener("canplaythrough", () => {
+              togglePlaying();
+              // delete loader
+            });
+          }
+          audioElement.src = url;
+          // togglePlaying();
         };
 
         // update chart with new data
@@ -68,13 +85,18 @@ function uploadFile() {
         createBarChart(analyserNode);
 
         // create circle chart
-        createCircleChart(analyserNode);
+        createCircleChart(analyserNode, false);
 
         // create linegraph
         startLineContext(analyserNode);
 
         // run synthesizer
         synthesizer(context, source);
+
+        // stop audio
+        // audio.pause();
+        // isPlaying = false;
+        // playButton.textContent = "play";
       };
       // if file is not chosen yet
     } else {

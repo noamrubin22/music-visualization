@@ -25,21 +25,22 @@ window.addEventListener("resize", function () {
 
 setRatio();
 setDimensions();
-function createCircleChart(analyserNode) {
+function createCircleChart(analyserNode, create = true) {
   /*creates svg environment and calls visualization function*/
   // append svg to div first svg
-  svgShaper = d3
-    .select(".circle-chart")
-    .append("svg")
-    .attr("id", "shape-svg")
-    // .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("height", svg1Height)
-    .attr("width", svg1Width)
-    .attr("viewBox", `0 0 ${svg1Width} ${svg1Height}`)
-    .classed("svg-content", true)
-    .attr("height", svg1Height)
-    .attr("width", svg1Width);
-
+  if (create) {
+    svgShaper = d3
+      .select(".circle-chart")
+      .append("svg")
+      .attr("id", "shape-svg")
+      // .attr("preserveAspectRatio", "xMinYMin meet")
+      .attr("height", svg1Height)
+      .attr("width", svg1Width)
+      .attr("viewBox", `0 0 ${svg1Width} ${svg1Height}`)
+      .classed("svg-content", true)
+      .attr("height", svg1Height)
+      .attr("width", svg1Width);
+  }
   // call create shapechart function
   shapeVisualization(analyserNode);
 }
