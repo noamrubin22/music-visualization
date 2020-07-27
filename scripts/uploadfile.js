@@ -5,7 +5,8 @@ function uploadFile() {
   const realFileButton = document.getElementById("real-file");
   const customButton = document.getElementById("upload-btn");
   const customText = document.getElementById("custom-text");
-
+  const playButton = document.getElementById("play-btn");
+  const audio = document.getElementsByName("audio")[0];
   // activate realfilebutton when custombutton is clicked
   customButton.addEventListener("click", function () {
     realFileButton.click();
@@ -15,6 +16,7 @@ function uploadFile() {
   realFileButton.addEventListener("change", function (e) {
     // if a file is chosen
     if (realFileButton.value) {
+      // stop audio
       // show filename
       customText.innerHTML = document
         .getElementById("real-file")

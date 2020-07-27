@@ -1,17 +1,32 @@
 // global variables
 let svgShaper, svgShaper2, svg1Height, svg1Width, svg2Height, svg2Width;
+let ratio = 6.5;
 
-function getMonitorSize() {
+const MOBILE_RATIO = 1.7;
+const DESKTOP_RATIO = 5.5;
+
+function setDimensions() {
   svg1Height = window.outerHeight;
   svg1Width = window.outerWidth;
 }
+function setRatio() {
+  let windowWidth = window.outerWidth;
+  if (windowWidth < 600) {
+    ratio = MOBILE_RATIO;
+  } else {
+    ratio = DESKTOP_RATIO;
+  }
+}
 
+window.addEventListener("resize", function () {
+  setDimensions();
+  setRatio();
+});
+
+setRatio();
+setDimensions();
 function createCircleChart(analyserNode) {
   /*creates svg environment and calls visualization function*/
-
-  // initialize size
-  getMonitorSize();
-
   // append svg to div first svg
   svgShaper = d3
     .select(".circle-chart")
@@ -20,7 +35,7 @@ function createCircleChart(analyserNode) {
     // .attr("preserveAspectRatio", "xMinYMin meet")
     .attr("height", svg1Height)
     .attr("width", svg1Width)
-    .attr("viewBox", `0 0 ${svg1Height} ${svg1Width}`)
+    .attr("viewBox", `0 0 ${svg1Width} ${svg1Height}`)
     .classed("svg-content", true)
     .attr("height", svg1Height)
     .attr("width", svg1Width);
@@ -45,26 +60,6 @@ function shapeVisualization(analyserNode) {
   // copy wavelength data to array
   analyserNode.getByteTimeDomainData(waveLengthArray);
 
-  // // scale for radius
-  // var scaleRadius = d3
-  //   .scaleLinear()
-  //   .domain([0, d3.max(waveLengthArray)])
-  //   .range([0, svg2Height]);
-
-  // // first colorscale
-  // var scaleHue1 = d3
-  //   .scaleLinear()
-  //   .domain([0, d3.max(waveLengthArray)])
-  //   .interpolate(d3.interpolateHcl)
-  //   .range([d3.rgb("#b4585d"), d3.rgb("FFB16A")]);
-  // 177, 147, 123;
-
-  // // second colorscale
-  // var scaleHue2 = d3
-  //   .scaleLinear()
-  //   .domain([0, d3.max(waveLengthArray)])
-  //   .range([300, 400]);
-
   // update first cirlce chart with data
   var circles = svgShaper
     .selectAll("circle")
@@ -72,9 +67,9 @@ function shapeVisualization(analyserNode) {
     .enter()
     .append("circle")
     .attr("r", function (d) {
-      return d * 7;
+      return d * ratio;
     })
-    .attr("cx", svg1Width / 2)
+    .attr("cx", svg1Width)
     .attr("cy", svg1Height / 2)
     .attr("fill", "none")
     .attr("stroke-width", 0.4)

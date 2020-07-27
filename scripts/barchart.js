@@ -44,12 +44,12 @@ function createBarChart(anaylserNode) {
     .enter()
     .append("rect")
     .attr("y", function (d, i) {
-      return (i * (w / bars)) / 0.6;
+      return (i * (w / bars)) / 1.8;
     })
     .attr("x", function (d) {
       return 0;
     })
-    .attr("height", barWidth)
+    .attr("height", barWidth / 2)
     .attr("width", function (d) {
       if (d > 0) {
         return x(d) / 1.5;
