@@ -9,16 +9,17 @@ function uploadFile() {
 
   // activate realfilebutton when custombutton is clicked
   customButton.addEventListener("click", function () {
+    if (!audio.paused) {
+      togglePlaying();
+    }
     realFileButton.click();
-    console.log("clicked");
     // pause music
-    togglePlaying();
   });
 
   // if value realfilebutton changes
   realFileButton.addEventListener("change", function (e) {
     // pause audio again
-    changeButtonText("wait");
+    changeButtonText("breathe");
     // playButton.textContent = "play";
     // playOnClick(false);
     // if a file is chosen
@@ -56,16 +57,7 @@ function uploadFile() {
           // Construct a URL for it
           var url = URL.createObjectURL(file);
           // Update audio element with the URL
-          if (!audioElement) {
-            audioElement = document.querySelector("audio");
-            // loader
-            // changeButtonText("wait");
-            audioElement.addEventListener("canplaythrough", () => {
-              togglePlaying();
-              // delete loader
-            });
-          }
-          audioElement.src = url;
+          audio.src = url;
           // togglePlaying();
         };
 

@@ -190,7 +190,7 @@
   #reset-btn {
     background-color: rgb(233, 176, 233);
     border-radius: 1rem;
-    margin: 0.5rem;
+    margin: 0.1rem;
     padding: 0.5rem;
     font-size: 1.2rem;
     box-shadow: 2px 2px black;
@@ -202,9 +202,9 @@
     margin-right: 0.5rem;
     z-index: 9000;
     align-self: center;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
     font-size: 1.7rem;
     background-color: rgb(233, 176, 233);
     box-shadow: 2px 2px black;

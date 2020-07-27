@@ -1,6 +1,7 @@
 let audio;
 let playButton;
 let isPlaying = false;
+let context, source, analyserNode;
 
 function changeButtonText(text) {
   playButton.textContent = text;
@@ -22,16 +23,45 @@ function playAudio(song) {
   if (!playButton) {
     playButton = document.getElementById("play-btn");
     playButton.addEventListener("click", function () {
-      console.log("clicked");
       togglePlaying();
     });
   }
   // initialize audio element
-  audio = new Audio();
+  if (!audio) {
+    audio = new Audio();
+    audio.controls = true;
+    audio.loop = true;
+    audio.autoplay = false;
+    audio.crossOrigin = "anonymous";
+    audio.hidden = true;
+    audio.addEventListener("canplaythrough", () => {
+      if (audio.paused) {
+        togglePlaying();
+      }
+      // delete loader
+    });
+    var audioElement = document.getElementById("audio-box");
+    console.log("4");
+    if (audioElement.hasChildNodes()) {
+      audioElement.replaceChild(audio, audioElement.childNodes[0]);
+    } else {
+      audioElement.appendChild(audio);
+    }
+
+    context = new AudioContext();
+
+    analyserNode = context.createAnalyser();
+    // re-route audio playback into the processing graph of the Audio context
+    source = context.createMediaElementSource(audio);
+  }
+
+  source.connect(analyserNode);
+
+  // connect visualizationdata to destination
+  analyserNode.connect(context.destination);
 
   // make sure CODS are set to None
-  audio.crossOrigin = "anonymous";
-  audio.hidden = true;
+
   // use uploaded song
   if (song == "schwarzes_gold.mp3") {
     audio.src = "audio/" + song;
@@ -50,50 +80,29 @@ function playAudio(song) {
     // };
   }
   // let it play
-  audio.controls = true;
-  audio.loop = true;
-  audio.autoplay = false;
 
   // if audio changes
-  audio.onchange = function () {
-    // create files in this
-    var files = this.files;
-    console.log("3");
-    // store objecturl
-    var file = URL.createObjectURL(files[0]);
+  // audio.onchange = function () {
+  //   // create files in this
+  //   var files = this.files;
+  //   console.log("3");
+  //   // store objecturl
+  //   var file = URL.createObjectURL(files[0]);
 
-    // set objecturl to audioplayer
-    audio_player.src = file;
+  //   // set objecturl to audioplayer
+  //   audio_player.src = file;
 
-    audio_player.resume();
+  //   audio_player.resume();
 
-    // playButton.textContent = "play";
-    // audio.pause();
-    // playOnClick(isPlaying);
+  //   // playButton.textContent = "play";
+  //   // audio.pause();
+  //   // playOnClick(isPlaying);
 
-    // play audio
-    audio_player.play();
-  };
+  //   // play audio
+  //   audio_player.play();
+  // };
 
   // replace audio element in the audio box on the page
-  var audioElement = document.getElementById("audio-box");
-  console.log("4");
-  if (audioElement.hasChildNodes()) {
-    audioElement.replaceChild(audio, audioElement.childNodes[0]);
-  } else {
-    audioElement.appendChild(audio);
-  }
-
-  var context = new AudioContext();
-
-  var analyserNode = context.createAnalyser();
-
-  // re-route audio playback into the processing graph of the Audio context
-  var source = context.createMediaElementSource(audio);
-  source.connect(analyserNode);
-
-  // connect visualizationdata to destination
-  analyserNode.connect(context.destination);
 
   return [context, source, analyserNode];
 }
