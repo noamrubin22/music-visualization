@@ -5,6 +5,7 @@ function uploadFile() {
   const realFileButton = document.getElementById("real-file");
   const customButton = document.getElementById("upload-btn");
   const customText = document.getElementById("custom-text");
+  const breatheButton = document.getElementById("breathe-btn");
   // const playButton = document.getElementById("play-btn");
 
   // activate realfilebutton when custombutton is clicked
@@ -19,7 +20,8 @@ function uploadFile() {
   // if value realfilebutton changes
   realFileButton.addEventListener("change", function (e) {
     // pause audio again
-    changeButtonText("breathe");
+    changeButtonText("wait");
+    breatheButton.hidden = false;
     // playButton.textContent = "play";
     // playOnClick(false);
     // if a file is chosen
