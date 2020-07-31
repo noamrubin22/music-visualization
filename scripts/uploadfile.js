@@ -10,10 +10,12 @@ function uploadFile() {
 
   // activate realfilebutton when custombutton is clicked
   customButton.addEventListener("click", function () {
+    console.log("click");
     if (!audio.paused) {
       togglePlaying();
     }
     realFileButton.click();
+    console.log("clicked");
     // pause music
   });
 
@@ -21,9 +23,6 @@ function uploadFile() {
   realFileButton.addEventListener("change", function (e) {
     // pause audio again
     changeButtonText("wait");
-    breatheButton.hidden = false;
-    // playButton.textContent = "play";
-    // playOnClick(false);
     // if a file is chosen
     if (realFileButton.value) {
       // stop audio

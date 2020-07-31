@@ -52,9 +52,8 @@
       <div class="circle-chart">
         <!-- <div class="svgShaper"></div> -->
       </div>
-      <button id="play-btn">pause</button>
-      <button hidden id="breathe-btn">breathe</button>
       <div class="configurations">
+        <button id="play-btn">pause</button>
         <div id="audio-box"></div>
         <div class="synthesizer" id="synthesizer">
           <label for="distortion" class="sliderlabel">distortion</label>
@@ -89,12 +88,12 @@
           />
           <button id="reset-btn" class="button">reset</button>
         </div>
+        <div class="upload-file" id="upload-file">
+          <input type="file" id="real-file" hidden="hidden" />
+          <button type="button" id="upload-btn">upload mp3 file</button>
+        </div>
+        <span id="custom-text"></span>
       </div>
-      <div class="upload-file" id="upload-file">
-        <input type="file" id="real-file" hidden="hidden" />
-        <button type="button" id="upload-btn">upload mp3 file</button>
-      </div>
-      <span id="custom-text"></span>
     </div>
     <!-- <div class="section"> -->
     <!-- <div class="shapes"> -->
