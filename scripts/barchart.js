@@ -1,7 +1,7 @@
 function createBarChart(anaylserNode) {
   /* creates a dynamic barchart */
 
-  // // makes sure that data is updated before overdrawing it
+  // makes sure that data is updated before overdrawing it
   window.requestAnimationFrame(function () {
     createBarChart(analyserNode);
   });

@@ -30,9 +30,6 @@ window.onload = function () {
     // create circle chart
     createCircleChart(analyserNode);
 
-    // create line graph
-    startLineContext(analyserNode);
-
     // run synthesizer
     synthesizer(context, source);
   });

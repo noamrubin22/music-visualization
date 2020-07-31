@@ -27,13 +27,11 @@ setRatio();
 setDimensions();
 function createCircleChart(analyserNode, create = true) {
   /*creates svg environment and calls visualization function*/
-  // append svg to div first svg
   if (create) {
     svgShaper = d3
       .select(".circle-chart")
       .append("svg")
       .attr("id", "shape-svg")
-      // .attr("preserveAspectRatio", "xMinYMin meet")
       .attr("height", svg1Height)
       .attr("width", svg1Width)
       .attr("viewBox", `0 0 ${svg1Width} ${svg1Height}`)
@@ -62,7 +60,7 @@ function shapeVisualization(analyserNode) {
   analyserNode.getByteTimeDomainData(waveLengthArray);
 
   // update first cirlce chart with data
-  var circles = svgShaper
+  svgShaper
     .selectAll("circle")
     .data(waveLengthArray)
     .enter()
@@ -75,8 +73,5 @@ function shapeVisualization(analyserNode) {
     .attr("fill", "none")
     .attr("stroke-width", 0.4)
     .attr("stroke-opacity", 0.2)
-    // .attr("stroke", function (d) {
-    //   return d3.hsl(scaleHue1(d), 1.2, 3);
-    // });
     .style("stroke", "yellow");
 }

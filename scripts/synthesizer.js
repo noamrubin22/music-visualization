@@ -7,15 +7,15 @@ function synthesizer(context, source) {
   /* gives possibilty to modify audio context and returns analyserNode*/
 
   // get elements from html
-  var selectedDistortion = document.getElementById("distortion");
-  var selectedFilter = document.getElementById("filter");
-  var selectedBassBooster = document.getElementById("lowpassfilter");
+  const selectedDistortion = document.getElementById("distortion");
+  const selectedFilter = document.getElementById("filter");
+  const selectedBassBooster = document.getElementById("lowpassfilter");
 
   // create audio context elements
-  var analyserNode = context.createAnalyser();
-  var distortion = context.createWaveShaper();
-  var gainNode = context.createGain();
-  var biquadFilter = context.createBiquadFilter();
+  let analyserNode = context.createAnalyser();
+  let distortion = context.createWaveShaper();
+  let gainNode = context.createGain();
+  let biquadFilter = context.createBiquadFilter();
 
   // connect nodes
   source.connect(distortion);
@@ -25,64 +25,41 @@ function synthesizer(context, source) {
   analyserNode.connect(context.destination);
 
   // initialize slider values variables
-  var changedDistortion = selectedDistortion.value;
-  var changedFilter = selectedFilter.value;
-  var changedBass = selectedBassBooster.value;
+  let changedDistortion = selectedDistortion.value;
+  let changedFilter = selectedFilter.value;
+  let changedBass = selectedBassBooster.value;
 
   // and a reset button variable
-  var resetButton = document.getElementsByClassName("button")[0];
+  const resetButton = document.getElementsByClassName("button")[0];
 
-  // when filter value changes
   function filterChange() {
     /* filters the low frequencies */
-
-    // let only the high frequencies pass
+    let newFilterValue = selectedFilter.value * 10000;
     biquadFilter.type = "highpass";
-
-    // calculate new filter value and multiply it
-    var newFilterValue = selectedFilter.value * 10000;
-
-    // change global filter value
     globalFilterValue = newFilterValue;
-
-    // only let frequencies above new filtervalue get through
     biquadFilter.frequency.setTargetAtTime(
       newFilterValue,
       context.currentTime,
       0
     );
-
-    // if frequency is lower than above, add 30
     biquadFilter.gain.setTargetAtTime(30, context.currentTime, 0);
   }
 
   function bassChange() {
     /* increases the low frequency sounds */
-
-    // use a lowshelf filter
+    let newFilterValue = selectedBassBooster.value * 100;
     biquadFilter.type = "lowshelf";
-
-    // calculate new filter value
-    var newFilterValue = selectedBassBooster.value * 100;
-
-    // only let frequencies below new filter value get through
     biquadFilter.frequency.setTargetAtTime(
       newFilterValue,
       context.currentTime,
       0
     );
-
-    // if frequency is lower than above, add 30
     biquadFilter.gain.setTargetAtTime(30, context.currentTime, 0);
   }
 
   function distortionChange() {
     /*adds a distortion to the sound*/
-
-    // calculate new distortion value
     changedDistortion = selectedDistortion.value * 800;
-
-    // use distortion curve to change sound
     distortion.curve = Distortion(changedDistortion);
   }
 
@@ -99,15 +76,11 @@ function synthesizer(context, source) {
     distortionChange(selectedDistortion.value);
   };
 
-  // when reset button is clicked
   resetButton.onclick = function () {
-    // song-properties go back to default settings
     selectedFilter.value = selectedFilter.defaultValue;
     filterChange(selectedFilter.defaultValue);
-
     selectedBassBooster.value = selectedBassBooster.defaultValue;
     bassChange(selectedBassBooster.defaultValue);
-
     selectedDistortion.value = selectedDistortion.defaultValue;
     distortionChange(selectedDistortion.defaultValue);
   };
@@ -115,8 +88,6 @@ function synthesizer(context, source) {
   // visualizations needs to receive new data from analyserNode
   createBarChart(analyserNode);
   shapeVisualization(analyserNode);
-  startLineContext(analyserNode);
-
   return analyserNode;
 }
 

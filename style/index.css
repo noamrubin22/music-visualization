@@ -237,7 +237,7 @@
     color: rgba(235, 247, 132, 0.945);
     position: absolute;
     bottom: 0;
-    left: 5%;
+    left: 15%;
     font-size: 1rem;
     text-align: center;
     text-shadow: 2px 2px 2px black;
@@ -296,11 +296,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* position: absolute; */
-    /* right: 0; */
-    /* left: 100%; */
-    /* width: 50%; */
-    /* height: 50%; */
     margin-top: 3rem;
     margin-right: 7rem;
   }
@@ -435,9 +430,6 @@
 
   #custom-text {
     color: rgba(235, 247, 132, 0.945);
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* right: 0; */
     padding: 1rem;
     font-size: 1.4rem;
     text-shadow: 2px 2px 2px black;
@@ -454,20 +446,16 @@
 
   #upload-btn {
     padding: 1.5rem;
-    /* padding: 2rem; */
     margin-top: 7rem;
     border-radius: 1rem;
     font-size: 1.5rem;
     background-color: rgb(233, 176, 233);
-    /* position: absolute; */
-    /* right: 0; */
     z-index: 999;
     box-shadow: 3px 3px black;
   }
 
   #play-btn {
     position: absolute;
-    /* left: 83%; */
     top: 0;
     z-index: 9000;
     padding-right: 1rem;
