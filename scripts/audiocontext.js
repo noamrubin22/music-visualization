@@ -40,7 +40,6 @@ function playAudio(song) {
       }
     });
     var audioElement = document.getElementById("audio-box");
-    console.log("4");
     if (audioElement.hasChildNodes()) {
       audioElement.replaceChild(audio, audioElement.childNodes[0]);
     } else {
